@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let questions = [
+        {
+          text: "перше питання? 3",
+          answers: ["1", "2", "3", "4"],
+          trueValue: 3,
+          price: 500,
+        },
+        {
+          text: "друге питання? 1",
+          answers: ["1", "2", "3", "4"],
+          trueValue: 1,
+          price: 1000,
+        },
+        {
+          text: " третє питання? 2",
+          answers: ["1", "2", "3", "4"],
+          trueValue: 2,
+          price: 2000,
+        },
+      ];
+
+      function sayQestion() {
+        let sum = 0;
+        for (let question of questions) {
+          let userValue = +prompt(
+            `Запитання : ` + question.text + ` Відповіді : ` + question.answers
+          );
+          console.log(userValue === question.trueValue);
+          if (userValue !== question.trueValue) {
+            alert(`Кінець гри. Ви виграли: ` + sum);
+            console.log(question.price);
+            break;
+          }
+          // визначаємо неспалимі суми
+          if (question.price > 5000 && question.price < 25000) {
+            sum = 5000;
+          } else if (question.price > 25000 && question.price < 1000000) {
+            sum = 25000;
+          } else question.price = 1000000;
+        }
+      }
+
+      sayQestion();
+    </script>
+  </body>
+</html>
