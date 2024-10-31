@@ -9,47 +9,142 @@
     <script>
       let questions = [
         {
-          text: "перше питання? 3",
-          answers: ["1", "2", "3", "4"],
+          text: "1) Який хімічний  символ води?",
+          answers: ["1) C_6-H_12-O_6", "2) C_2-OH_5", "3) H_2O", "4) CO_2"],
           trueValue: 3,
           price: 500,
         },
         {
-          text: "друге питання? 1",
-          answers: ["1", "2", "3", "4"],
+          text: "2) Перший сучасний папір використовувався у____ році?",
+          answers: ["1) 104", "2) 1584", "3) 1256", "4) 1759"],
           trueValue: 1,
           price: 1000,
         },
         {
-          text: " третє питання? 2",
-          answers: ["1", "2", "3", "4"],
-          trueValue: 2,
+          text: "3) Скільки сердець має восьминога?",
+          answers: ["1) 4", "2) 3", "3) 2", "4) 1"],
+          trueValue: 3,
           price: 2000,
         },
+        {
+          text: "4) Яку спортивну гру винайшов Джеймс Нейсміт у 1891 році?",
+          answers: ["1) Баскетбол", "2) Хокей", "3) Теніс", "4) Гольф"],
+          trueValue: 1,
+          price: 3000,
+        },
+        {
+          text: "5) У якому році було вперше випущено Хрещеного батька?",
+          answers: ["1) 1993", "2) 2000", "3) 1986", "4) 1972"],
+          trueValue: 4,
+          price: 5000,
+        },
+        {
+          text: "6) Якою візитною карткою Аль Капоне було його заняття?",
+          answers: [
+            "1) Перукар",
+            "2) Продавець вживаних меблів",
+            "3) Продавець автомобілів",
+            "4) Бюро ритуальних послуг",
+          ],
+          trueValue: 2,
+          price: 8000,
+        },
+        {
+          text: "7) Який найбільший орган в організмі людини?",
+          answers: ["1) Печінка", "2) Шкіра", "3) Серце", "4) Легені"],
+          trueValue: 2,
+          price: 10000,
+        },
+        {
+          text: "8) Яка столиця Португалії?",
+          answers: ["1 )Ліссабон", "2) Порту", "3) Брага", "4) Амадора"],
+          trueValue: 1,
+          price: 12000,
+        },
+        {
+          text: "9) Скільки вдихів щодня робить людський організм?",
+          answers: ["1) 25 000", "2) 15 000", "3) 30 000", "4) 20 000"],
+          trueValue: 4,
+          price: 15000,
+        },
+        {
+          text: "10) Хто заспівав пісню «Hit Me Baby One More Time» у серіалі Kungfu Panda 2024 року?",
+          answers: [
+            "1) Мадонна",
+            "2) Джек Блек",
+            "3) Джек Горобець",
+            "4) Кіану Рівз",
+          ],
+          trueValue: 2,
+          price: 25000,
+        },
+        {
+          text: "11) Скільки гравців у команді з водного поло?",
+          answers: ["1) 9", "2) 5", "3) 7", "4) 11"],
+          trueValue: 3,
+          price: 50000,
+        },
+        {
+          text: "12) Хто кинув молоток і перо на Місяць, щоб продемонструвати, що без повітря вони падають з однаковою швидкістю?",
+          answers: [
+            "1) Алан Бін",
+            "2) Ніл Армстронг",
+            "3) Девід  Скотт",
+            "4) Девід Янг",
+          ],
+          trueValue: 3,
+          price: 100000,
+        },
+        {
+          text: "13) Скільки соняшників було в третій версії картини «Соняшники» Ван Гога?",
+          answers: ["1) 5", "2) 15", "3) 9", "4) 12"],
+          trueValue: 4,
+          price: 250000,
+        },
+        {
+          text: "14) Який розмір сітки в грі Scrabble",
+          answers: ["1) 13 х 13", "2) 15 х 15", "3) 16 х 16", "4) 14 х 14"],
+          trueValue: 2,
+          price: 500000,
+        },
+        {
+          text: "15) Як називається на латині справжній шлунок у жуйних тварин",
+          answers: ["1) Rumen", "2) Riticulum", "3) Omasum", "4) Abomasum"],
+          trueValue: 4,
+          price: 1000000,
+        },
       ];
+
+      let startGame = confirm("Вітаємо у грі. Бажаєте зіграти?");
+
+      if (startGame === true) {
+        sayQestion();
+      }
 
       function sayQestion() {
         let sum = 0;
         for (let question of questions) {
           let userValue = +prompt(
-            `Запитання : ` + question.text + ` Відповіді : ` + question.answers
+            `Запитання : ` +
+              question.text +
+              `\r\n Відповіді : ` +
+              question.answers
           );
           console.log(userValue === question.trueValue);
           if (userValue !== question.trueValue) {
-            alert(`Кінець гри. Ви виграли: ` + sum);
+            // alert(`Кінець гри. Ви виграли: ` + sum);
             console.log(question.price);
             break;
           }
           // визначаємо неспалимі суми
-          if (question.price > 5000 && question.price < 25000) {
+          if (question.price >= 5000 && question.price < 25000) {
             sum = 5000;
-          } else if (question.price > 25000 && question.price < 1000000) {
+          } else if (question.price >= 25000 && question.price < 999999) {
             sum = 25000;
           } else question.price = 1000000;
         }
+        alert(`Кінець гри. Ви виграли: ` + sum);
       }
-
-      sayQestion();
     </script>
   </body>
 </html>
