@@ -132,14 +132,13 @@
           );
           console.log(userValue === question.trueValue);
           if (userValue !== question.trueValue) {
-            // alert(`Кінець гри. Ви виграли: ` + sum);
             console.log(question.price);
             break;
           }
           // визначаємо неспалимі суми
           if (question.price >= 5000 && question.price < 25000) {
             sum = 5000;
-          } else if (question.price >= 25000 && question.price < 999999) {
+          } else if (question.price >= 25000 && question.price < 1000000) {
             sum = 25000;
           } else question.price = 1000000;
         }
